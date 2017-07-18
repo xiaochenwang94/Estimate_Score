@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+		#l-map{height:100%;width:78%;float:left;border-right:2px solid #bcbcbc;}
+		#r-result{height:100%;width:20%;float:left;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DYWi7X1GIQGTRMlrTk37fw8DDGh4LaNy"></script>
+	<title>添加多个标注点</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+    var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+	var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+	var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角
+	var map = new BMap.Map("allmap");
+	map.addControl(top_left_control);
+    map.addControl(top_left_navigation);
+    map.addControl(top_right_navigation);
+	var point = new BMap.Point(121.62255102 ,31.20714286);
+	map.centerAndZoom(point, 12);
+	// 编写自定义函数,创建标注
+	function addMarker(point){
+	  var marker = new BMap.Marker(point);
+	  map.addOverlay(marker);
+	}
+	var my1=new Array(121.65260274,
+121.38407692,
+121.32285714,
+121.16      ,
+121.79457746,
+121.5235    ,
+121.2177551 ,
+121.8775    ,
+121.25625   ,
+121.49724138,
+121.61142857,
+121.11952381,
+121.4715625 ,
+121.3245679 ,
+121.11607143,
+121.45611111,
+121.46566265,
+121.35634146,
+121.53364583,
+121.5822093 ,
+121.46810606,
+121.68607143,
+121.1982    ,
+121.32712766,
+121.21421053,
+121.22547619,
+121.62428571,
+121.60788889,
+121.39631579,
+121.729375  )
+
+var my2 = new Array(31.31616438,
+31.21815385,
+30.73482143,
+31.29302632,
+31.14464789,
+31.21621429,
+31.03867347,
+30.87931818,
+31.34097222,
+31.35362069,
+31.20095238,
+31.1647619 ,
+30.976875  ,
+31.19074074,
+31.44571429,
+30.79055556,
+31.24024096,
+31.14060976,
+31.154375  ,
+31.35755814,
+31.17075758,
+31.21625   ,
+31.4226    ,
+31.28095745,
+31.11684211,
+31.21119048,
+31.11928571,
+31.25655556,
+31.40447368,
+31.36      )
+	for (var i = 0; i < my1.length; i ++) {
+		var point = new BMap.Point(my1[i],my2[i]);
+		addMarker(point);
+	}
+</script>
+
